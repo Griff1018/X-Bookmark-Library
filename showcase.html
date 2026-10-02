@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>X Bookmark Library</title>
+	<link rel="preconnect" href="https://pbs.twimg.com" crossorigin>
+	<link rel="dns-prefetch" href="//pbs.twimg.com">
+	<link rel="stylesheet" href="showcase.css">
+</head>
+
+<body>
+	<div class="app">
+		<header class="hero">
+			<div class="brandBlock">
+				<div class="brandLine"><img src="icons/icon48.png" alt="" class="brandIcon">
+					<div>
+						<div class="eyebrow">LOCAL ARCHIVE · SHOWCASE MODE</div>
+						<h1>X Bookmark Library</h1>
+						<p>Search your imported X bookmarks instead of scrolling forever.</p>
+                        <p class="reminder-text">
+                            <strong>Reminder:</strong> Scanned Bookmarks are only stored in your local Google storage. To prevent data loss, regularly export your archive.
+                        </p>
+					</div>
+				</div>
+			</div>
+			<div class="heroRight">
+				<div class="countBox"><strong id="count">0</strong><span>saved posts</span></div>
+				<button id="refreshBtn" class="iconBtn" title="Refresh library">↻</button>
+			</div>
+		</header>
+		<section class="recoveryBar">
+			<div><strong>Media Recovery</strong><span id="fetchStatus">Find saved posts that do not have an image or video thumbnail yet.</span></div>
+			<button id="fetchMissingBtn" class="recoveryBtn" type="button">Press To Fetch All Unfetched Images &amp; Thumbnails</button>
+		</section>
+		<section class="controls">
+			<div class="searchbox"><span class="searchIcon">⌕</span>
+				<input id="search" type="search" autocomplete="off" spellcheck="false" placeholder="Search text, @handle, tag:name...">
+				<button id="clearSearch" class="clearSearch" aria-label="Clear search">×</button>
+			</div>
+			<select id="collection" aria-label="Collection">
+				<option value="all">All saved</option>
+				<option value="bookmark">Bookmarks</option>
+				<option value="like">Likes</option>
+			</select>
+			<select id="filter" aria-label="Filter bookmarks">
+				<option value="all">All media</option>
+				<option value="text">Text only</option>
+				<option value="image">Images</option>
+				<option value="multiple-images">Multiple images</option>
+				<option value="video">Videos</option>
+				<option value="link">Links</option>
+			</select>
+			<select id="tagFilter" aria-label="Filter by tag">
+				<option value="">All tags</option>
+			</select>
+			<select id="sort" aria-label="Sort saved posts">
+				<option value="newest">Newest first</option>
+				<option value="oldest">Oldest first</option>
+				<option value="likes">Most liked</option>
+				<option value="reposts">Most reposted</option>
+			</select>
+			<div class="sizeControl" title="Ctrl + mouse wheel also changes card size"><span class="sizeLabel">Card size</span>
+				<input id="cardSize" type="range" min="140" max="480" step="10" value="320" aria-label="Card size"><span id="cardSizeValue">320px</span></div>
+		</section>
+		<section class="subbar">
+			<div id="searchInfo">Showing all 0 saved posts</div>
+			<div id="resultCount">0 results</div>
+		</section>
+		<div id="activeSearch" class="activeSearch hidden"></div>
+		<main id="grid" class="grid"></main>
+		<div id="empty" class="empty">No saved posts yet.</div>
+		<div id="loadMore" class="loadMore hidden">
+			<button id="loadMoreBtn">Load more</button>
+		</div>
+	</div>
+	<div id="imageModal" class="imageModal hidden" aria-hidden="true">
+		<button id="modalClose" class="modalClose" aria-label="Close image">×</button>
+		<div class="modalBackdrop"></div>
+		<div class="modalContent" role="dialog" aria-modal="true" aria-label="Enlarged bookmark image"><img id="modalImage" src="" alt="">
+			<div id="modalCaption" class="modalCaption"></div>
+		</div>
+	</div>
+
+	<!-- Tag editor modal -->
+	<div id="tagModal" class="tagModal hidden" aria-hidden="true">
+		<div class="tagModalBackdrop"></div>
+		<div class="tagModalContent">
+			<div class="tagModalHeader">
+				<strong>Edit Tags</strong>
+				<button id="tagModalClose" class="tagModalCloseBtn" aria-label="Close">×</button>
+			</div>
+			<div id="tagModalCurrentTags" class="tagModalCurrent"></div>
+			<div class="tagModalInputRow">
+				<input id="tagInput" type="text" placeholder="Add a tag..." autocomplete="off" spellcheck="false">
+				<button id="tagAddBtn" class="tagAddBtn">Add</button>
+			</div>
+			<div id="tagSuggestions" class="tagSuggestions"></div>
+		</div>
+	</div>
+	<script src="showcase.js"></script>
+</body>
+
+</html>

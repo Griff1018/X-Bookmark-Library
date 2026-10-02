@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>X Bookmark Library</title>
+	<link rel="stylesheet" href="sidepanel.css">
+</head>
+
+<body>
+	<header class="topbar">
+		<div class="brand"><img src="icons/icon48.png" alt="" class="brandIcon">
+			<div>
+				<div class="eyebrow">LOCAL LIBRARY</div>
+				<h1>X Bookmarks</h1>
+			</div>
+		</div>
+		<div class="count" id="count">0</div>
+	</header>
+	<details class="reminder-details">
+		<summary class="reminder-summary">Tips & reminders</summary>
+		<p class="reminder-text">
+			<strong>Reminder:</strong>
+			<br>1. Scanned Bookmarks are only stored in your local google storage. To prevent data loss, regularly export
+			your archive.
+			<br>2. You can shrink the X pages for faster scanning with the sacrifice of some precision.
+			<br>3. You can leave the page background to run, just make sure the extension and target pages are together.Just sometimes it will stop suddenly
+			<br>4. If you feel the scanning become lag and laggier, <b>backup</b> then reinstall the extension to clear the local storage. Continue by Import them again
+			<br>5. This app avoid duplicate bookmarks, dont worry
+		</p>
+	</details>
+	<section class="toolbar">
+		<button id="scanBtn" class="primary">Scan X Bookmarks</button>
+		<button id="stopBtn" class="secondary">Stop</button>
+		<button id="showcaseBtn" class="ghost">Showcase ↗</button>
+	</section>
+	<div id="status" class="status">Open <b>x.com/i/history</b>, <b>x.com/i/bookmarks</b>, or
+		<b>x.com/i/history/likes</b>, then scan.</div>
+
+	<section class="searchbar">
+		<div class="searchbox"><span class="searchIcon">⌕</span>
+			<input id="search" type="search" autocomplete="off" spellcheck="false"
+				placeholder="Search text, @handle, tag:name...">
+			<button id="clearSearch" class="clearSearch" aria-label="Clear search">×</button>
+		</div>
+		<div class="filterRow">
+			<select id="collection" aria-label="Collection">
+				<option value="all">All saved</option>
+				<option value="bookmark">Bookmarks</option>
+				<option value="like">Likes</option>
+			</select>
+			<select id="filter" aria-label="Filter media">
+				<option value="all">All media</option>
+				<option value="text">Text only</option>
+				<option value="image">Images</option>
+				<option value="multiple-images">Multiple images</option>
+				<option value="video">Videos</option>
+				<option value="link">Links</option>
+			</select>
+			<select id="tagFilter" aria-label="Filter by tag">
+				<option value="">All tags</option>
+			</select>
+		</div>
+	</section>
+	<section class="searchMeta"><span id="searchInfo">Showing all 0 saved posts</span><strong
+			id="resultCount">0 results</strong></section>
+	<section class="tips">
+		<div class="tipsTitle">Search operators</div>
+		<div class="tipsText"><code>"exact phrase"</code> <code>from:username</code> <code>tag:name</code>
+			<code>has:image</code> <code>has:video</code> <code>has:link</code> <code>after:2026-01-01</code>
+			<code>before:2026-01-01</code>
+		</div>
+	</section>
+	<section id="grid" class="grid"></section>
+	<div id="empty" class="empty">No saved posts yet.</div>
+
+	<!-- Tag editor modal -->
+	<div id="tagModal" class="tagModal hidden" aria-hidden="true">
+		<div class="tagModalBackdrop"></div>
+		<div class="tagModalContent">
+			<div class="tagModalHeader">
+				<strong>Edit Tags</strong>
+				<button id="tagModalClose" class="tagModalCloseBtn" aria-label="Close">×</button>
+			</div>
+			<div id="tagModalCurrentTags" class="tagModalCurrent"></div>
+			<div class="tagModalInputRow">
+				<input id="tagInput" type="text" placeholder="Add a tag..." autocomplete="off" spellcheck="false">
+				<button id="tagAddBtn" class="tagAddBtn">Add</button>
+			</div>
+			<div id="tagSuggestions" class="tagSuggestions"></div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="footerGroup">
+			<button id="openBookmarks">Open X Bookmarks</button>
+			<button id="openLikes">Open X Likes</button>
+			<button id="importBtn">Import JSON</button>
+			<button id="exportBtn">Export JSON</button>
+			<input id="importFile" type="file" accept="application/json,.json" hidden>
+		</div>
+		<div class="footerGroup"><span id="saveState" class="saveState">Auto-save on</span>
+			<button id="clearBtn">Clear archive</button>
+		</div>
+	</footer>
+	<script src="sidepanel.js"></script>
+</body>
+
+</html>
