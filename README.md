@@ -1,4 +1,4 @@
-![alt text](https://github.com/Griff1018/X-Bookmark-Library/blob/icons/icon128.png?raw=true)
+![alt text](https://github.com/Griff1018/X-Bookmark-Library/blob/main/icons/icon128.png?raw=true)
 # X Bookmark Library
 
 A privacy-focused Manifest V3 Chrome extension that indexes your X (Twitter) bookmarks and likes into a local, searchable archive with an integrated side panel, full-page visual showcase, and media recovery engine.
